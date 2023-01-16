@@ -1,10 +1,11 @@
-import { Container, Paper } from "@mui/material";
+import { Container } from "@mui/material";
 import React, { FC } from "react";
+import Home from "./Pages/Home/Home";
 
 const App: FC = () => {
   return (
     <Container>
-      <Paper elevation={3}>Test</Paper>
+      <Home />
     </Container>
   );
 };
