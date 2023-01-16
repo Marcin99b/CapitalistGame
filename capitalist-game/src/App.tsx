@@ -2,7 +2,7 @@ import { AppBar, BottomNavigation, BottomNavigationAction, Container, Paper, Typ
 import { FC } from "react";
 import Home from "./Pages/Home/Home";
 import { Apartment, AttachMoney, InsertChart } from "@mui/icons-material";
-import { Route, Routes, Outlet, BrowserRouter, useLocation, Navigate } from "react-router-dom";
+import { Route, Routes, Outlet, BrowserRouter, Navigate } from "react-router-dom";
 import Companies from "./Pages/Companies/Companies";
 import Statistics from "./Pages/Statistics/Statistics";
 import AddCompany from "./Pages/Companies/AddCompany/AddCompany";

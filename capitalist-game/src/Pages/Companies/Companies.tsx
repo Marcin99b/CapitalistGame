@@ -34,7 +34,9 @@ const companiesList: CompanySummary[] = [
 const Companies: FC = () => {
   return (
     <Stack spacing={3}>
-      <Button variant="contained">Create new</Button>
+      <Button variant="contained" href="/companies/add">
+        Create new
+      </Button>
       <List dense={false}>
         {companiesList.map((x) => (
           <ListItemButton key={x.name} onClick={() => {}}>
