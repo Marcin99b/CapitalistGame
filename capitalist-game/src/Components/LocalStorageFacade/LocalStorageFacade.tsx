@@ -1,43 +1,32 @@
-const budgetKey = "BUDGET";
-const addPerClickKey = "ADD_PER_CLICK";
-const nextUpgradeCostKey = "NEXT_UPGRADE_COST";
-
 const budgetDefault = 0;
 const addPerClickDefault = 1;
 const nextUpgradeCostDefault = 10;
 
-//budget
-export const getBudgetFromLocalStorage = (): number => {
-  const value = localStorage.getItem(budgetKey);
+export type LocalStorageKey = "BUDGET" | "ADD_PER_CLICK" | "NEXT_UPGRADE_COST";
+
+export const getIntLocalStorage = (key: LocalStorageKey): number => {
+  const value = localStorage.getItem(key);
   if (value) return parseInt(value);
-  setBudgetInLocalStorage(budgetDefault);
-  return budgetDefault;
+
+  const defaultValue =
+    key === "BUDGET"
+      ? budgetDefault
+      : key === "ADD_PER_CLICK"
+      ? addPerClickDefault
+      : key === "NEXT_UPGRADE_COST"
+      ? nextUpgradeCostDefault
+      : 0;
+  setIntInLocalStorage(key, defaultValue);
+
+  return defaultValue;
 };
 
-export const setBudgetInLocalStorage = (value: number) => {
-  localStorage.setItem(budgetKey, value.toString());
+export const setIntInLocalStorage = (key: LocalStorageKey, value: number) => {
+  localStorage.setItem(key, value.toString());
 };
 
-//add per click
-export const getAddPerClickFromLocalStorage = (): number => {
-  const value = localStorage.getItem(addPerClickKey);
-  if (value) return parseInt(value);
-  setBudgetInLocalStorage(addPerClickDefault);
-  return addPerClickDefault;
-};
-
-export const setAddPerClickInLocalStorage = (value: number) => {
-  localStorage.setItem(addPerClickKey, value.toString());
-};
-
-//next upgrade cost
-export const getnextUpgradeCostFromLocalStorage = (): number => {
-  const value = localStorage.getItem(nextUpgradeCostKey);
-  if (value) return parseInt(value);
-  setBudgetInLocalStorage(nextUpgradeCostDefault);
-  return nextUpgradeCostDefault;
-};
-
-export const setnextUpgradeCostInLocalStorage = (value: number) => {
-  localStorage.setItem(nextUpgradeCostKey, value.toString());
+export const resetLocalStorage = () => {
+  setIntInLocalStorage("BUDGET", budgetDefault);
+  setIntInLocalStorage("ADD_PER_CLICK", addPerClickDefault);
+  setIntInLocalStorage("NEXT_UPGRADE_COST", nextUpgradeCostDefault);
 };
