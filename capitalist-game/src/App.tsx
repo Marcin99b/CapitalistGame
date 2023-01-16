@@ -5,6 +5,7 @@ import { Apartment, AttachMoney, InsertChart } from "@mui/icons-material";
 import { Route, Routes, Outlet, BrowserRouter } from "react-router-dom";
 import Companies from "./Pages/Companies/Companies";
 import Statistics from "./Pages/Statistics/Statistics";
+import AddCompany from "./Pages/Companies/AddCompany/AddCompany";
 
 const App: FC = () => {
   return (
@@ -13,7 +14,9 @@ const App: FC = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/companies" element={<Companies />} />
+          <Route path="/companies/add" element={<AddCompany />} />
           <Route path="/statistics" element={<Statistics />} />
+          <Route path="*" element={<Home />} /> {/* TODO 404 page */}
         </Route>
       </Routes>
     </BrowserRouter>
