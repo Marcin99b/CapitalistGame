@@ -2,7 +2,7 @@ import { AppBar, BottomNavigation, BottomNavigationAction, Container, Paper, Typ
 import { FC } from "react";
 import Home from "./Pages/Home/Home";
 import { Apartment, AttachMoney, InsertChart } from "@mui/icons-material";
-import { Route, Routes, Outlet, BrowserRouter } from "react-router-dom";
+import { Route, Routes, Outlet, BrowserRouter, useLocation, Navigate } from "react-router-dom";
 import Companies from "./Pages/Companies/Companies";
 import Statistics from "./Pages/Statistics/Statistics";
 import AddCompany from "./Pages/Companies/AddCompany/AddCompany";
@@ -16,7 +16,7 @@ const App: FC = () => {
           <Route path="/companies" element={<Companies />} />
           <Route path="/companies/add" element={<AddCompany />} />
           <Route path="/statistics" element={<Statistics />} />
-          <Route path="*" element={<Home />} /> {/* TODO 404 page */}
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -46,3 +46,6 @@ const Layout: FC = () => {
     </>
   );
 };
+
+/* TODO 404 page */
+const NotFound: FC = () => <Navigate to="/" />;
